@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <!-- Add Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background: url('booksquill.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-container {
+            background: rgba(255, 255, 255, 0.6); /* Transparent white background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ffcca9, 0 0 30px #b8977b, 0 0 45px #ffffff; /* Constant glowing effect */
+            backdrop-filter: blur(10px); /* Adds the blur effect */
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #ffffff; /* White glowing border */
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transition for border and shadow */
+            background: transparent;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background for inputs */
+            transition: border 0.3s ease-in-out;
+            padding-left: 35px; /* Space for icons */
+        }
+
+        .input-field:focus {
+            border-color: #000000;
+            outline: none;
+        }
+
+        /* Style for icons */
+        .input-icon {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #ffffff;
+            border-color: #e4d1d1;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            background-color: #ffffff;
+        }
+
+        .forgot-password, .switch-auth {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a, .switch-auth a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover, .switch-auth a:hover {
+            color: #ffffff;
+        }
+
+        .message {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container" id="auth-container">
+        <h2 id="auth-heading">Login</h2>
+        <form id="auth-form">
+            <!-- Login Form -->
+            <div class="input-container">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="username" class="input-field" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" class="input-field" placeholder="Password" required>
+            </div>
+            <button type="submit" class="auth-btn" id="auth-btn">Login</button>
+        </form>
+        <div class="switch-auth" id="switch-auth">
+            <a href="#" id="switch-link">Don't have an account? Sign up</a>
+        </div>
+        <div class="message" id="login-message"></div>
+        <div class="error-message" id="error-message"></div>
+    </div>
+
+    <script>
+        // Initial state, if user is logged in, show the welcome message
+        window.onload = function() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                document.getElementById('auth-heading').textContent = `Welcome back, ${loggedInUser}!`;
+                document.getElementById('auth-form').style.display = 'none';
+                document.getElementById('switch-auth').style.display = 'none';
+            }
+        };
+
+        // Switch between Login and Sign Up forms
+        document.getElementById('switch-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const authHeading = document.getElementById('auth-heading');
+            const authBtn = document.getElementById('auth-btn');
+            const switchLink = document.getElementById('switch-link');
+            const authForm = document.getElementById('auth-form');
+            const errorMessage = document.getElementById('error-message');
+
+            if (authHeading.textContent === 'Login') {
+                authHeading.textContent = 'Sign Up';
+                authBtn.textContent = 'Sign Up';
+                switchLink.textContent = 'Already have an account? Login';
+                authForm.innerHTML = ` 
+                    <div class="input-container">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="name" class="input-field" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" class="input-field" placeholder="Email" required>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" class="input-field" placeholder="Password" required>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required>
+                    </div>
+                    <label>
+                        <input type="checkbox" id="remember-me"> Remember me
+                    </label>
+                    <button type="submit" class="auth-btn" id="auth-btn">Sign Up</button>
+                `;
+            } else {
+                authHeading.textContent = 'Login';
+                authBtn.textContent = 'Login';
+                switchLink.textContent = "Don't have an account? Sign up";
+                authForm.innerHTML = ` 
+                    <div class="input-container">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="username" class="input-field" placeholder="Username" required>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" class="input-field" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn" id="auth-btn">Login</button>
+                `;
+            }
+            errorMessage.textContent = '';  // Clear error message
+        });
+
+        // Handle Login and Sign Up with validation
+        document.getElementById('auth-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const authHeading = document.getElementById('auth-heading').textContent;
+            const errorMessage = document.getElementById('error-message');
+            const username = document.getElementById('username') ? document.getElementById('username').value : null;
+            const password = document.getElementById('password').value;
+
+            // Sign Up Validation
+            if (authHeading === 'Sign Up') {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const rememberMe = document.getElementById('remember-me').checked;
+
+                // Validate fields
+                if (!name || !email || !password || !confirmPassword) {
+                    errorMessage.textContent = "All fields are required.";
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    errorMessage.textContent = "Passwords do not match.";
+                    return;
+                }
+
+                // Store the user info and redirect to the home page
+                localStorage.setItem('loggedInUser', name);
+                window.location.href = '/'; // Redirect to the homepage
+            }
+
+            // Login Validation
+            if (authHeading === 'Login') {
+                if (!username || !password) {
+                    errorMessage.textContent = "Username and password are required.";
+                    return;
+                }
+
+                // Simulate login
+                localStorage.setItem('loggedInUser', username);
+                window.location.href = '/'; // Redirect to the homepage
+            }
+        });
+    </script>
+
+</body>
+</html>

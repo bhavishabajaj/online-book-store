@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore - Categories</title>
+    <style>
+        body {
+            font-family: Arial;
+            color:#f9f9f9; 
+            margin: 0;
+            padding: 0;
+            background-color: rgb(53, 3, 3)
+        
+            
+          }
+               .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 1rem;
+        }
+        .category {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color:#333;
+        }
+        .category h3 {
+            margin: 0;
+        }
+        .book-shelf {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .book-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            width: calc(25% - 1rem);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .book-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+    </head>
+
+<body>
+    
+    <div class="container">
+
+        <h1><b> Categories</b></h1>
+
+        <div class="category" style="background-color: rgb(206, 183, 153);">
+            <h3></i>1. ROMANCE</i></h3>
+            <div class="book-shelf">
+                <div class="book-item"> 
+                    <a href="https://www.amazon.in/Starts-Us-Ends-Novel-Books/dp/B0BJV69BMB">
+                    <img src="https://5.imimg.com/data5/ANDROID/Default/2023/4/300895448/RB/VS/NN/139116043/product-jpeg-500x500.jpg" alt="It Ends with Us">
+                    </a>
+                    <h4>"It Ends with Us"</h4>
+                    <p>Author: Colleen Hoover </p>
+                    <p>Price: ₹300</p>
+                    <blockquote>"You don’t get to choose if you get hurt in this world... but you do have some say in who hurts you."</blockquote>
+                    <button class="add-to-cart-btn" bookName="It ends With us"  price="300" imageUrl="https://5.imimg.com/data5/ANDROID/Default/2023/4/300895448/RB/VS/NN/139116043/product-jpeg-500x500.jpg">Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/White-Royal-Blue-Casey-McQuiston-ebook/dp/B09Q3CBBCK">
+                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1566742512i/41150487.jpg" alt="Red, White & Royal Blue">
+                    </a>
+                    <h4>"Red, White & Royal Blue"</h4>
+                    <p>Author: Casey McQuiston</p>
+                    <p>Price: ₹300</p>
+                    <blockquote>"I’m not going to let you make me feel less than."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                 <div class="book-item">
+                    <a href="https://www.amazon.in/Beach-Read-Emily-Henry/dp/1984806734">
+                    <img src="https://cdn.kobo.com/book-images/1a6bcfc4-280e-49f5-b7e0-4ebdc5b6c7ab/353/569/90/False/beach-read-1.jpg" alt="Beach Read">
+                    </a>
+                    <h4>"Beach Read"</h4>
+                    <p>Author: Emily Henry </p>
+                    <p>Price: ₹300</p>
+                    <blockquote>"The thing about writing is that it’s a lot like love."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Hating-Game-Sally-Thorne/dp/0349414262">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlXsl6J-ioRZ4RXpmDX09O3G2Bn6NQKDGwsQ&s" alt="The Hating Game">
+                    </a>
+                    <h4>"The Hating Game"</h4>
+                    <p>Author: Sally Thorne </p>
+                    <p>Price: ₹300</p>
+                     <blockquote>"I’m not sure if I hate him or if I love him."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(159, 136, 108);">
+            <h3>2. POETRY </h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a href="https://www.flipkart.com/sun-her-flowers/p/itmcbfdbf9c408e7">
+                    <img src="https://rupikaur.com/cdn/shop/files/Rupi_Kaur_Books_TSAHFPB.png?v=1616359968&width=3200" alt="The Sun and Her Flowers">
+                    </a>
+                    <h4>"The Sun and Her Flowers"</h4>
+                    <p>Author: Rupi Kaur </p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"The wound is where the light enters you."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Milk-Honey-Rupi-Kaur/dp/144947425X">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKMAka_C93WM3xTaeVUJjaNxAxFwmoNzBCxUx8h3jfhttfUqwqNyEizwIgY8RoTAV3Cr4&usqp=CAU" alt="Milk and Honey">
+                    </a>
+                    <h4>"Milk and Honey"</h4>
+                    <p>Author:Jalal al-Din Rumi </p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"The wound is the place where the light enters you."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Ariel-Poems-Sylvia-Plath/dp/0060931728">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyccl3zFJJ8ob7McCJJlXWdsv0SMvRKYKPK65S6ZV9UBUpX24vH0h4RikWcHJ2u90RP84&usqp=CAU" alt="Ariel">
+                    </a>
+                    <h4>"Ariel"</h4>
+                    <p>Author: Sylvia Plath</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"I took a deep breath and listened to the old bray of my heart."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                  <div class="book-item">
+                    <a href="https://www.amazon.in/Poet-X-Elizabeth-Acevedo/dp/0062662805">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8HTf1QAWkwTt1G5juMeeYMyHm4ia5VqQFw&s" alt="The Poet X">
+                    </a>
+                    <h4>"The Poet X"</h4>
+                    <p>Author: Elizabeth Acevedo</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"I am unhireable."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(170, 123, 65);">
+            <h3>3.INSPIRATIONAL</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Alchemist-Paulo-Coelho/dp/8172234988">
+                    <img src="https://itstyle.co.in/cdn/shop/files/500_c7316878-6d1e-45c5-bcba-52e931031e4a_620x.jpg?v=1686040869" alt="The Alchemist">
+                    </a>
+                    <h4>"The Alchemist"</h4>
+                    <p>Author: Paulo Coelho </p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"And, when you want something, all the universe conspires in helping you to achieve it."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Mans-Search-Meaning-Viktor-Frankl/dp/1846041244">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/RO/IX/SE/60672026/man-s-search-for-meaning-back-500x500.png" alt="Man's Search for Meaning">
+                    </a>
+                    <h4>"Man's Search for Meaning"</h4>
+                    <p>Author: Viktor E. Frankl</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"When we are no longer able to change a situation, we are challenge to change ourselves."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                     <div class="book-item">
+                        <a href="https://www.amazon.in/DARING-GREATLY-Bren%C3%A9-Brown/dp/1592408419">
+                    <img src="https://m.media-amazon.com/images/I/81GOZ+-+yiL.AC_UF1000,1000_QL80.jpg" alt="Daring Greatly">
+                    </a>
+                    <h4>"Daring Greatly"</h4>
+                    <p>Author: Brené Brown </p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"Vulnerability is not weakness. And that myth is profoundly dangerous."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                 <div class="book-item">
+                    <a href="https://www.amazon.in/Power-Now-Guide-Spiritual-Enlightenment/dp/1577314808">
+                    <img src="https://m.media-amazon.com/images/I/61Ij8nLooNL.AC_UF1000,1000_QL80.jpg" alt="The Power of Now">
+                    </a>
+                    <h4>"The Power of Now"</h4>
+                    <p>Author: Eckhart Tolle </p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"Realize deeply that the present moment is all you ever have."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(153, 113, 61);">
+            <h3>4.ACTION</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Into-Wild-Jon-Krakauer/dp/033045367X">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/63/Into_the_Wild_%28book%29_cover.png" alt="Into the wild">
+                    </a>
+                    <h4>"Into the wild"</h4>
+                    <p>Author: Jon Krakauer</p>
+                    <p>Price: ₹500</p>
+                   <blockquote>"The freedom and simple beauty of it is just too good to pass up."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Treasure-Island-Robert-Louis-Stevenson/dp/8172344767">
+                    <img src="https://m.media-amazon.com/images/I/710K9pWWZ+L.AC_UF1000,1000_QL80.jpg" alt="Treasure Island">
+                    </a>
+                    <h4>"Treasure Island"</h4>
+                    <p>Author: Robert Louis Stevenson</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"Fifteen men on the dead man’s chest—Yo-ho-ho, and a bottle of rum."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+              <div class="book-item">
+                <a href="https://www.amazon.in/Martian-Novel-Andy-Weir/dp/0553418025">
+                    <img src="https://m.media-amazon.com/images/I/51QimqeXMXL.AC_UF1000,1000_QL80.jpg" alt="The Martian">
+                    </a>
+                    <h4>"The Martian"</h4>
+                    <p>Author: Andy Weir</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>>"I’m pretty much f***ed. That’s my considered opinion."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+               <div class="book-item">
+                <a href="https://www.amazon.com/Hatchet-Gary-Paulsen/dp/1416936475">
+                    <img src="https://m.media-amazon.com/images/I/81ET+cWmDBL.AC_UF1000,1000_QL80.jpg" alt="Hatchet">
+                    </a>
+                    <h4>"Hatchet"</h4>
+                    <p>Author:Gary Paulsen</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"He was alone. It was not a good feeling."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(189, 160, 124);">
+            <h3>5.CHILDREN's BOOK</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Where-Wild-Things-Caldecott-Collection/dp/0064431789">
+                    <img src="https://m.media-amazon.com/images/I/A1wx+e0rJ2L.AC_UF1000,1000_QL80.jpg" alt="Where the Wild Things Are">
+                   </a> 
+                   <h4>"Where the Wild Things Are"</h4>
+                    <p>Author: Maurice Sendak</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"Let the wild rumpus start!"</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a href="https://www.amazon.in/Charlottes-Web-B-White/dp/0061124958">
+                    <img src="https://m.media-amazon.com/images/I/813AS1xuZiL.AC_UF1000,1000_QL80.jpg" alt="Charlotte's Web">
+                    </a>
+                    <h4>"Charlotte's Web"</h4>
+                    <p>Author: E.B. White </p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"It is not often that someone comes along who is a true friend and a good writer."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+             <div class="book-item">
+                <a href="https://www.amazon.in/Very-Hungry-Caterpillar-Eric-Carle/dp/0140569324">
+                    <img src="https://m.media-amazon.com/images/I/81n9Y6AGy6L.AC_UF1000,1000_QL80.jpg" alt="The Very Hungry Caterpillar">
+                    <h4>"The Very Hungry Caterpillar"</h4>
+                    <p>Author: Eric Carle </p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"In the light of the moon, a little egg lay on a leaf."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+            <div class="book-item">
+                <a href="https://www.amazon.in/Harry-Potter-Philosophers-Stone-Rowling/dp/1408855658">
+                    <img src="https://m.media-amazon.com/images/I/81DI+BAN2SL.AC_UF1000,1000_QL80.jpg" alt="Harry Potter and the Sorcerer's Stone">
+                    </a>
+                    <h4>"Harry Potter and the Sorcerer's Stone"</h4>
+                    <p>Author: J.K. Rowling</p>
+                    <p>Price: ₹500</p>
+                      <blockquote> "It does not do to dwell on dreams and forget to live."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(191, 163, 121);">
+            <h3>6.TEEN FICITON</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/Fault-our-Stars-John-Green/dp/0141345659">
+                    <img src="https://m.media-amazon.com/images/I/61fbVx3W5cL.AC_UF1000,1000_QL80.jpg" alt="The Fault in Our Stars">
+                    </a>
+                    <h4>"The Fault in Our Stars"</h4>
+                    <p>Author: John Green</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"Okay? Okay."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/HUNGER-GAMES-SUZANNE-COLLINS/dp/0439023521">
+                    <img src="https://m.media-amazon.com/images/I/61I24wOsn8L.AC_UF1000,1000_QL80.jpg" alt="The Hunger Games">
+                    </a>
+                    <h4>"The Hunger Games"</h4>
+                    <p>Author: Suzanne Collins</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"May the odds be ever in your favor."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+             <div class="book-item">
+                <a herf="https://www.amazon.in/Eleanor-Park-Rainbow-Rowell/dp/1409120546">
+                    <img src="https://m.media-amazon.com/images/I/71Z-ZMqurwL.AC_UF1000,1000_QL80.jpg" alt="Eleanor & Park">
+                   </a>
+                    <h4>"Eleanor & Park"</h4>
+                    <p>Author: Rainbow Rowell</p>
+                    <p>Price: ₹500</p>
+                   <blockquote>"You don’t get to choose if you get hurt in this world, old man, but you do have some say in who hurts you."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+            <div class="book-item">
+                <a herf="https://www.amazon.in/Wonder-R-J-Palacio/dp/0375869026">
+                    <img src="https://m.media-amazon.com/images/I/61lqrT3zHnL.AC_UF1000,1000_QL80.jpg" alt="Wonder">
+                    </a> 
+                    <h4>"Wonder"</h4>
+                    <p>Author: R.J. Palacio</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>When given the choice between being right or being kind, choose kind."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(212, 212, 173);">
+            <h3>7.CRIME</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/Gone-Girl-Novel-Gillian-Flynn/dp/0307588378">
+                    <img src="https://m.media-amazon.com/images/I/71+khXHbe5L.AC_UF1000,1000_QL80.jpg" alt="Gone Girl">
+                    </a>
+                    <h4>"Gone Girl"</h4>
+                    <p>Author: Gillian Flynn </p>
+                    <p>Price: ₹500</p>
+                   <blockquote>"There’s something disturbing about recalling a warm memory and coldly wondering if it was a lie."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/GIRL-DRAGON-TATTOO-Stieg-Larsson/dp/0307949486">
+                    <img src="https://m.media-amazon.com/images/I/81YW99XIpJL.UF1000,1000_QL80.jpg" alt="The Girl with the Dragon Tattoo">
+                    </a>
+                    <h4>"The Girl with the Dragon Tattoo"</h4>
+                    <p>Author: Stieg Larsson</p>
+                    <p>Price: ₹500</p>
+                   <blockquote>"The truth will set you free, but first it will piss you off."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+              <div class="book-item">
+                <a herf="https://www.amazon.in/Woman-Window-J-Finn/dp/0008294372">
+                    <img src="https://m.media-amazon.com/images/I/7196sTeTolL.AC_UF1000,1000_QL80.jpg" alt="The Woman in the Window">
+                    </a>
+                    <h4>"The Woman in the Window"</h4>
+                    <p>Author: A.J. Finn</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"You can't ever know what happens behind closed door"</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+             <div class="book-item">
+                <a herf="https://www.amazon.in/Big-Little-Lies-Liane-Moriarty/dp/0425274861">
+                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1559835163i/33516773.jpg" alt="Big Little Lies">
+                    </a>
+                    <h4>"Big Little Lies"</h4>
+                    <p>Author: Liane Moriarty</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"Sometimes it’s hard to tell if you’re being a good parent or just a happy one."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" style="background-color: rgb(182, 162, 133);">
+            <h3>8.SELF TRANSFORMATION</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a herf="https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680194">
+                    <img src="https://m.media-amazon.com/images/I/81BE7eeKzAL.AC_UF1000,1000_QL80.jpg" alt="Rich Dad Poor Dad">
+                    </a>
+                    <h4>"Rich Dad Poor Dad"</h4>
+                    <p>Author: Robert Kiyosaki</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"The love of money is not the root of all evil. The lack of money is."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/Millionaire-Next-Door-Thomas-Stanley/dp/0671775308">
+                    <img src="https://m.media-amazon.com/images/I/81Bte4GAYtL.AC_UF1000,1000_QL80.jpg" alt="The Millionaire Next Door">
+                    </a>
+                    <h4>"The Millionaire Next Door"</h4>
+                    <p>Author: Thomas J. Stanley & William D. Danko</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"Wealth is what you accumulate, not what you spend.</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+               <div class="book-item">
+                <a herf="">
+                    <img src="https://m.media-amazon.com/images/I/61nkc1NdxsL.AC_UF1000,1000_QL80.jpg" alt="You Are a Badass at Making Money">
+                    </a>
+                    <h4>"You Are a Badass at Making Money"</h4>
+                    <p>Author: Dave Ramsey</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"If you will live like no one else, later you can live like no one else."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a herf="https://www.amazon.in/Book-Thief-Readers-Circle/dp/0375842209">
+                    <img src="https://m.media-amazon.com/images/I/914cHl9v7oL.AC_UF1000,1000_QL80.jpg" alt="The Book Thief">
+                    </a>
+                    <h4>"The Book Thief"</h4>
+                    <p>Author: Markus Zusak</p>
+                    <p>Price: ₹500</p>
+                     <blockquote> "I am haunted by humans."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+                <div class="category" style="background-color: rgb(197, 172, 141);">
+            <h3>9. COMICS</h3>
+            <div class="book-shelf">
+                <div class="book-item">
+                    <a herf="">
+                    <img src="https://m.media-amazon.com/images/I/61BvMZbTw9L.AC_UF1000,1000_QL80.jpg" alt="Watchmen">
+                    </a>
+                    <h4>"Watchmen"</h4>
+                    <p>Author: Alan Moore</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"It's all part of the plan."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="book-item">
+                    <a herf="">
+                    <img src="https://m.media-amazon.com/images/I/810n6p+2ceL.AC_UF1000,1000_QL80.jpg" alt="Sandman">
+                    </a>
+                    <h4>"Sandman"</h4>
+                    <p>Author: Neil Gaiman</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"Things need not have happened to be true. Tales and dreams are the shadow-truths that will endure when mere facts are dust and ashes."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+               <div class="book-item">
+                <a herf="">
+                    <img src="https://m.media-amazon.com/images/I/71nXxfnNEcL.AC_UF1000,1000_QL80.jpg" alt="Maus">
+                    </a>
+                    <h4>"Maus"</h4>
+                    <p>Author: Art Spiegelman</p>
+                    <p>Price: ₹500</p>
+                    <blockquote>"To die, it's easy. But you have to struggle for life."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+               <div class="book-item">
+                <a herf="">
+                    <img src="https://m.media-amazon.com/images/I/616z6dC0bYL.AC_UF1000,1000_QL80.jpg" alt="Persepolis">
+                    </a>
+                    <h4>"Persepolis"</h4>
+                    <p>Author: Marjane Satrapi</p>
+                    <p>Price: ₹500</p>
+                     <blockquote>"In life, you'll meet a lot of people. Some of them will have their own pain."</blockquote>
+                    <button>Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Online Bookstore. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Function to handle adding the book to the cart
+        function addToCart(bookName, author, price, imageUrl) {
+            // Retrieve the cart from localStorage or create a new one if not found
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        const image = this.getAttribute('data-image');
+
+            // Push the new book's details to the cart array
+            cart.push({ bookName, author, price, imageUrl });
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Alert the user
+            alert('Book added to cart!');
+        }
+
+        // Adding event listeners to all "Add to Cart" buttons
+        document.addEventListener('DOMContentLoaded', function () {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+            // Attach the click event listener to each button
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Get the book data from the parent .book-item div
+                    const bookItem = button.closest('.book-item');
+                    const bookName = bookItem.getAttribute('data-book-name');
+                    const author = bookItem.getAttribute('data-author');
+                    const price = bookItem.getAttribute('data-price');
+                    const imageUrl = bookItem.getAttribute('data-image-url');
+
+                    // Add the book to the cart
+                    addToCart(bookName, author, price, imageUrl);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form - Vintage Online Bookstore</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lora', serif; /* Classic serif font for vintage feel */
+            background: beige; /* Light beige background for a vintage look */
+            color: #3a3a3a; /* Dark gray text for readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+            padding: 20px;
+            background-image: url('booksquill.jpg');
+            background-size: cover;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: transparent;
+            padding: 30px;
+            border-radius: 10px; /* Slightly rounded corners */
+            box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px #ffffff; /* Constant glowing effect */
+            text-align: left;
+            border: 1px solid rgba(18, 18, 17, 0.3); /* Subtle border */
+            animation: fadeIn 1s ease; /* Fade-in animation */
+            backdrop-filter: blur(8px); /* Blur effect behind the form */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ffffff; /* Dark brown for headings */
+            font-size: 2em; /* Larger font size */
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow for text */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            color: #444; /* Slightly lighter text color */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: rgb(255, 255, 255); /* White color for labels */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(18, 18, 17, 0.3); /* Subtle border */
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent input background */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #3a3a3a; /* Dark gray on focus */
+            outline: none;
+            box-shadow: 0 0 10px rgba(58, 58, 58, 0.3); /* Soft focus glow */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #fffdfc; /* Vintage brown background */
+            border: none;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 700;
+        }
+
+        button:hover {
+            background-color: #f4c1a2; /* Lighter brown on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #3b8b57; /* Green color for success messages */
+            font-size: 1.2em;
+            transition: opacity 0.5s ease;
+        }
+
+        #errorMessage {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: red; /* Red color for error messages */
+            font-size: 1.2em;
+            visibility: hidden; /* Initially hide the error message */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            button {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>We Value Your Feedback!</h1>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Feedback:</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Enter Your Feedback"></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div id="responseMessage"></div>
+        <div id="errorMessage"></div>
+    </div>
+
+    <script>
+        // Function to retrieve stored data from localStorage
+        function loadStoredData() {
+            const storedName = localStorage.getItem('name');
+            const storedEmail = localStorage.getItem('email');
+            const storedMessage = localStorage.getItem('message');
+
+            if (storedName && storedEmail && storedMessage) {
+                document.getElementById('name').value = storedName;
+                document.getElementById('email').value = storedEmail;
+                document.getElementById('message').value = storedMessage;
+            }
+        }
+
+        // Call function to load stored data on page load
+        window.onload = loadStoredData;
+
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting traditionally
+
+            // Clear previous messages
+            document.getElementById('responseMessage').textContent = '';
+            const errorMessageElement = document.getElementById('errorMessage');
+            errorMessageElement.textContent = '';  // Clear any old error messages
+            errorMessageElement.style.visibility = 'hidden';  // Hide error message initially
+
+            // Capture form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Validation
+            let isValid = true;
+            let errorMessage = '';
+
+            // Check if name is not empty
+            if (!name.trim()) {
+                isValid = false;
+                errorMessage += 'Name is required.\n';
+            }
+
+            // Check if email is valid
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email.match(emailPattern)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid email address.\n';
+            }
+
+            // Check if feedback message is at least 50 characters
+            if (message.length < 50) {
+                isValid = false;
+                errorMessage += 'Feedback message must be at least 50 characters.\n';
+            }
+
+            // If validation passes, store data in localStorage and display success
+            if (isValid) {
+                // Store the form data in localStorage
+                localStorage.setItem('name', name);
+                localStorage.setItem('email', email);
+                localStorage.setItem('message', message);
+
+                // Display success message
+                document.getElementById('responseMessage').textContent = `Thank you for your feedback, ${name}!`;
+                document.getElementById('responseMessage').style.color = '#3b8b57'; // Success color
+
+                // Clear form fields for new feedback
+                document.getElementById('feedbackForm').reset();
+
+                // Hide the error message if form is valid
+                errorMessageElement.style.visibility = 'hidden';
+            } else {
+                // Display error message and make it visible
+                errorMessageElement.textContent = errorMessage;
+                errorMessageElement.style.visibility = 'visible';  // Make the error message visible
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Online Bookstore</title>
+  <style>
+    body {
+      background: url('https://images2.alphacoders.com/261/26102.jpg') no-repeat center center fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(240, 236, 236, 0.923);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .container:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 30px rgb(247, 249, 249);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #444;
+    }
+
+    .cart-summary {
+      margin: 20px 0;
+    }
+
+    .cart-summary table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cart-summary th, .cart-summary td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"], input[type="email"], input[type="password"], select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #8B4513;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #6A2E1D;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .card-details {
+      display: none;
+    }
+
+    /* New Styles for UPI Options */
+    .upi-options {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .upi-options img {
+      width: 50px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><b>CHECKOUT</b></h1>
+
+    <!-- <div class="cart-summary">
+      <h3>Your Cart</h3>
+      <table id="cart-summary-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="cart-summary-body">
+         Cart items will be dynamically added here -->
+       <!-- </tbody>
+      </table>
+      <p><strong>Total:</strong> ₹<span id="total-price">0</span></p>
+    </div> -->
+
+    <div>
+      <h3>Shipping Information</h3>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Shipping Address:</label>
+          <input type="text" id="address" name="address" placeholder="Enter your shipping address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div>
+          <label for="phone number">Phone Number:</label>
+          <input type="number"id="phone number" placeholder="Enter your Phone Number " required>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Payment Method:</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="upi">UPI</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="card">Credit/Debit Card</option>
+          </select>
+        </div>
+
+        <!-- UPI payment options -->
+        <div class="upi-options" id="upi-options">
+          <img src="https://telecomtalk.info/wp-content/uploads/2022/12/gpay-how-to-create-or-find-upi-1024x683.jpg" alt="Google Pay" title="Google Pay" onclick="selectPaymentOption('gpay')">
+          <img src="https://d3pc1xvrcw35tl.cloudfront.net/images/1200x900/payment-app-phone-pay-has-launched-an-aggregator-service-know-here-everything_2023061030257.jpg" alt="PhonePe" title="PhonePe" onclick="selectPaymentOption('phonepe')">
+          <img src="https://static.vecteezy.com/system/resources/previews/022/100/825/large_2x/paytm-logo-transparent-free-png.png  " alt="Paytm" title="Paytm" onclick="selectPaymentOption('paytm')">
+        </div>
+
+        <!-- Card payment details (hidden by default) -->
+        <div class="card-details" id="card-details">
+          <div class="form-group">
+            <label for="cardNumber">Card Number:</label>
+            <input type="number" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Complete Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cartForCheckout")) || [];
+
+    function renderCartSummary() {
+      const cartSummaryBody = document.getElementById("cart-summary-body");
+      const totalPrice = document.getElementById("total-price");
+      cartSummaryBody.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>₹${item.price}</td>
+          <td>${item.quantity}</td>
+          <td>₹${subtotal.toFixed(2)}</td>
+        `;
+        cartSummaryBody.appendChild(row);
+      });
+
+      totalPrice.textContent = total.toFixed(2);
+    }
+
+    // Show/hide UPI options based on payment method
+    document.getElementById("paymentMethod").addEventListener("change", function() {
+      const paymentMethod = this.value;
+      const upiOptions = document.getElementById("upi-options");
+      const cardDetails = document.getElementById("card-details");
+      if (paymentMethod === "upi") {
+        upiOptions.style.display = "block"; // Show UPI options
+        cardDetails.style.display = "none"; // Hide card details
+      } else if (paymentMethod === "card") {
+        cardDetails.style.display = "block"; // Show card details
+        upiOptions.style.display = "none"; // Hide UPI options
+      } else {
+        upiOptions.style.display = "none"; // Hide UPI options
+        cardDetails.style.display = "none"; // Hide card details
+      }
+    });
+
+    // Store the selected UPI option
+    let selectedUPI = null;
+    function selectPaymentOption(payment) {
+      selectedUPI = payment;
+      alert('You selected ' + payment.toUpperCase() + ' as your payment method.');
+    }
+
+    // Handle form submission
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const paymentMethod = document.getElementById("paymentMethod").value;
+
+      if (paymentMethod === "cod") {
+        alert("Order placed successfully! Cash on delivery.");
+      } else if (paymentMethod === "upi" && selectedUPI) {
+        if (selectedUPI === 'gpay') {
+          window.location.href = "https://pay.google.com/";
+        } else if (selectedUPI === 'phonepe') {
+          window.location.href = "https://www.phonepe.com/";
+        } else if (selectedUPI === 'paytm') {
+          window.location.href = "https://paytm.com/";
+        }
+      } else {
+        alert("Please select a payment method.");
+      }
+
+      localStorage.removeItem("cartForCheckout"); // Clear the cart after checkout
+    });
+
+    document.addEventListener("DOMContentLoaded", renderCartSummary);
+  </script>
+</body>
+</html>
